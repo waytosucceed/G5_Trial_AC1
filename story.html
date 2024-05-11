@@ -1,0 +1,184 @@
+<html>
+    <head> <title>G5 trial</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <style>
+
+            #storydiv { 
+                height: 100%;
+                position: relative;         
+              }
+                      
+            #storydiv p {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+            
+            .maindiv{
+                border:5px ridge rgb(12, 96, 206);
+                margin:1%;
+                border-radius:20px
+            }
+
+            p{
+                font-size:30px;
+              
+                font-weight: bold;
+            }
+
+           
+
+            #nextbtn, #backbtn, #newbtn{
+                width: 25%;
+                font-size:20px;
+                margin-right: 5%;
+                position: relative;
+                
+            }
+
+            #backbtn, #newbtn{
+                display:none;
+            }
+
+            #family{
+                width:95%;
+                height:95%;
+            }
+
+            #about{
+                font-weight: bold;
+                font-size:40px;
+                color:rgb(7, 7, 89)
+            }
+
+            #story{ 
+                font-size: 22px;
+                border-radius: 20px;
+            }
+
+            #imgdiv{
+                position:relative;
+            }
+         
+        
+        </style>
+</head>
+
+    <body> 
+        <div class="header" style="width:100%; box-shadow:5px 5px 10px rgb(0, 0, 0); padding-bottom:10px;">
+            <img src="Logo.png" width="5%" style="float:left; margin-top:25px;" class="img-responsive">
+            <span> <img src="header.png" width="30%" height="100px" class="img-responsive"></span>
+        </div>
+         <br>
+        <br>
+        
+        <center>
+            <h2 id="about">Jake and the Clumsy Knight Rescue</h2>
+         <div class="maindiv container-fluid" style="height: 60%;">
+            
+            <center>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11 imgdiv">
+                <img id="family" src="Assests/1.jpg" style="width: 100%;"> 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11" id="storydiv">
+                
+                <p id="story" style="text-align: left;width: 100%;">
+                    Once in the kingdom of Water Dew, there was a knight in training named
+                    Jake. You would think Jake was a strong boy and could easily fight off his
+                    opponents, but that was not so.
+                </p> 
+            </div>
+        </center>
+        </div>
+        <br>
+        <div class="" style="text-align:center; padding-top:1%">
+            
+            <button id="backbtn" onclick="backpic()" class="btn btn-success">Back</button>
+            <button id="nextbtn" onclick="update()" class="btn btn-success">Continue</button>
+            <button id="newbtn" onclick="newpage()" class="btn btn-success">Next</button>
+            
+
+        </div>
+        </center>   
+
+        <script>
+
+            var images = ["Assests/2.jpg", "Assests/3.jpg", "Assests/4.jpg", "Assests/5.jpg", "Assests/6.jpg", "Assests/7.jpg","Assests/8.jpg", "Assests/9.jpg"];
+            var para=[ "In fact, Jake was very clumsy, which was the reason why his parents enrolled him in knight school. But Jake was not improving.",
+
+                      " A few weeks ago, Jake got in trouble with his dragon. It was a test to see if he could rescue a princess while riding a dragon. The princess was put in a tower and was pleading for help. Jake thought, “If they see me rescue the princess, they will no longer call me clumsy.",
+
+                      " So Jake patted his dragon, and it flew up. But as he approached the tower, his helmet cover came down, blocking his eyes. Then his dragon, surprised, breathed fire all over the place. The rescue test was cancelled. The princess and the other players were angry at Jake for being so careless. Jake felt embarrassed and sad.",
+
+                      " The next day Jake woke up early to do the extra chores the headmaster had given to him as punishment. He was about to start when he heard a scream. It sounded familiar. Jake went outside and brought a sword and shield, just in case. Then he saw a huge dragon! And on the dragon was a woman with the ugliest face Jake had ever seen.",
+        
+                      "It was a witch! And the witch had put the princess in a cage that the dragon was holding.<br><br>Jake shouted, ” Put the Princess down right now!” <br>“Why?” said the witch, “I need her for my spell.",
+    
+                      "You can’t just take people like that!” shouted Jake again.” Well, I guess I can’t just go without a fight, huh!” shouted the witch angrily.",
+
+                      "Jake hopped onto his dragon, and his dragon flew up. Then the worst thing ever happened. His helmet cover came down. Then repeatedly, like yesterday, his dragon was surprised and breathed fire everywhere and started burning the princess. “Ha, now you’re just making my work easier,”cackled the witch. But Jake knew he couldn’t fail.",
+
+                      "He leapt over to the witch, and in mid-air, he grabbed his sword and hit the witch. Then the witch and the dragon disappeared. After that, Jake freed the princess, who went and told the headmaster about Jake’s chivalrous act. And after that, everyone stopped calling Jake clumsy.",]
+                            
+            
+
+            var i = -1;
+            function update(){
+                i++
+                document.getElementById("backbtn").style.display="inline-block"
+                if(i > para.length-1){
+                    document.getElementById("nextbtn").style.display="none"
+                    document.getElementById("newbtn").style.display="inline-block"
+                    document.getElementById("family").src = "Assests/last.jpg";
+                 
+              
+                }
+                else{
+                    
+                     var updated_image = images[i]; 
+                var newpara =para[i];
+                document.getElementById("family").src = updated_image;
+                document.getElementById("story").innerHTML = newpara;
+              
+            }
+            };
+
+            function newpage(){
+                window.location="ac2.html"
+            }
+
+            function backpic(){
+                i=i-1
+                console.log(i)
+                document.getElementById("story").style.fontSize="22px"
+                document.getElementById("story").style.backgroundColor="white"
+                if(i<0){
+                    document.getElementById("backbtn").style.display="none"
+                    document.getElementById("nextbtn").style.display="inline-block"
+                    document.getElementById("family").src = "Assests/1.jpg";
+                    document.getElementById("story").innerHTML = "Once in the kingdom of Water Dew, there was a knight in training named Jake. You would think Jake was a strong boy and could easily fight off his opponents. but that was not so.";
+                }
+                else{
+                document.getElementById("nextbtn").style.display="inline-block"
+                var updated_image = images[i]; 
+                var newpara =para[i];
+                document.getElementById("family").src = updated_image;
+                document.getElementById("story").innerHTML = newpara;
+                }
+            }
+
+            
+
+    
+    </script>
+        
+    </body>
+</html>
